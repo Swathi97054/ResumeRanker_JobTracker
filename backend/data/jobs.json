@@ -1,1 +1,42 @@
-{}
+{
+  "145e559b-d539-46e7-a269-79c8593d7fa8": {
+    "raw_text": "We are looking for a passionate Frontend Developer to join our team. You will be responsible for building user-friendly web applications using modern technologies.",
+    "required_skills": [
+      "r"
+    ],
+    "preferred_skills": [],
+    "experience_level": "not_specified",
+    "education_requirements": [],
+    "responsibilities": [
+      "You will be responsible for building user-friendly web applications using modern technologies"
+    ],
+    "benefits": [],
+    "location_type": "not_specified",
+    "salary_range": {},
+    "id": "145e559b-d539-46e7-a269-79c8593d7fa8",
+    "title": "Frontend Developer",
+    "company": "StartupXYZ",
+    "location": "chennai",
+    "original_description": "We are looking for a passionate Frontend Developer to join our team. You will be responsible for building user-friendly web applications using modern technologies.",
+    "analysis_date": "2025-08-03T16:03:19.411591"
+  },
+  "6bf70baf-328a-4b12-ae91-cfe1b227a997": {
+    "raw_text": "Job application for analyst at zoho",
+    "required_skills": [
+      "r"
+    ],
+    "preferred_skills": [],
+    "experience_level": "not_specified",
+    "education_requirements": [],
+    "responsibilities": [],
+    "benefits": [],
+    "location_type": "not_specified",
+    "salary_range": {},
+    "id": "6bf70baf-328a-4b12-ae91-cfe1b227a997",
+    "title": "analyst",
+    "company": "zoho",
+    "location": null,
+    "original_description": "Job application for analyst at zoho",
+    "analysis_date": "2025-08-03T16:04:03.426346"
+  }
+}

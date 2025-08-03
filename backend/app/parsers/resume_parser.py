@@ -456,7 +456,7 @@ class ResumeParser:
         return personal_details
 
     def _extract_education(self, text: str, sections: Dict[str, str]) -> List[Dict[str, str]]:
-        """Extract education information with proper grouping - Dynamic approach"""
+        """Extract education information with improved parsing"""
         education = []
         
         # Parse the entire text line by line to find education entries
@@ -475,19 +475,20 @@ class ResumeParser:
             if 'education' in line_lower:
                 in_education_section = True
                 continue
-            elif in_education_section and any(section in line_lower for section in ['skills', 'certifications', 'languages', 'projects', 'strengths', 'activities', 'hobbies', 'awards', 'achievements', 'personal details']):
+            elif in_education_section and any(section in line_lower for section in ['skills', 'certifications', 'languages', 'projects', 'strengths', 'activities', 'hobbies', 'awards', 'achievements', 'personal details', 'experience']):
                 break
             elif not in_education_section:
                 continue
             
-            # Check for degree patterns - more flexible approach
+            # Check for degree patterns - more comprehensive approach
             degree_patterns = [
                 r'\b(b\.?\s*tech|bachelor|b\.?\s*e|b\.?\s*sc)\b',
                 r'\b(m\.?\s*tech|master|m\.?\s*e|m\.?\s*sc)\b',
                 r'\b(diploma|polytechnic)\b',
                 r'\b(ph\.?\s*d|doctorate)\b',
                 r'\b(schooling|high school|secondary|intermediate|inter)\b',
-                r'\b(be|b\.?\s*tech|bachelor)\b'
+                r'\b(be|b\.?\s*tech|bachelor)\b',
+                r'\b(artificial intelligence|computer science|electronics|mechanical|civil)\b'
             ]
             
             is_degree_line = False
@@ -511,11 +512,13 @@ class ResumeParser:
             
             # If we have a current education entry, look for additional details
             if current_education:
-                # Check for institution names - more flexible keywords
+                # Check for institution names - more comprehensive keywords
                 institution_keywords = [
                     'college', 'university', 'institute', 'school', 'polytechnic', 
                     'engineering', 'medical', 'arts', 'science', 'commerce',
-                    'academy', 'center', 'campus', 'university', 'college'
+                    'academy', 'center', 'campus', 'university', 'college',
+                    'technology', 'vijaya', 'chaitanya', 'jntu', 'nit', 'iit',
+                    'high school', 'secondary', 'primary', 'elementary'
                 ]
                 
                 has_institution_keyword = any(keyword in line_lower for keyword in institution_keywords)
@@ -651,7 +654,7 @@ class ResumeParser:
         return filtered_education
     
     def _extract_experience(self, text: str, sections: Dict[str, str]) -> List[Dict[str, str]]:
-        """Extract work experience"""
+        """Extract work experience - improved to separate from projects"""
         experience = []
         
         # Look for common job title patterns - expanded for Indian context
@@ -701,10 +704,12 @@ class ResumeParser:
             if current_experience:
                 experience.append(current_experience)
         
-        # If no experience found in section, search entire text but exclude education content
+        # If no experience found in section, search entire text but exclude education and project content
         if not experience:
             lines = text.split('\n')
             in_education_section = False
+            in_projects_section = False
+            in_experience_section = False
             
             for line in lines:
                 line_lower = line.lower().strip()
@@ -712,13 +717,34 @@ class ResumeParser:
                 # Skip education section
                 if 'education' in line_lower:
                     in_education_section = True
+                    in_projects_section = False
+                    in_experience_section = False
                     continue
-                elif in_education_section and any(section in line_lower for section in ['skills', 'certifications', 'languages', 'projects', 'strengths', 'activities', 'hobbies']):
+                elif in_education_section and any(section in line_lower for section in ['skills', 'certifications', 'languages', 'projects', 'strengths', 'activities', 'hobbies', 'experience']):
                     in_education_section = False
                 
-                if not in_education_section:
+                # Skip projects section
+                if 'projects' in line_lower:
+                    in_projects_section = True
+                    in_education_section = False
+                    in_experience_section = False
+                    continue
+                elif in_projects_section and any(section in line_lower for section in ['skills', 'certifications', 'languages', 'education', 'strengths', 'activities', 'hobbies', 'experience']):
+                    in_projects_section = False
+                
+                # Check for experience section
+                if 'experience' in line_lower:
+                    in_experience_section = True
+                    in_education_section = False
+                    in_projects_section = False
+                    continue
+                elif in_experience_section and any(section in line_lower for section in ['skills', 'certifications', 'languages', 'education', 'projects', 'strengths', 'activities', 'hobbies']):
+                    in_experience_section = False
+                
+                if in_experience_section and not in_education_section and not in_projects_section:
+                    # Check if line contains job title and not project-related content
                     for title in job_titles:
-                        if title in line_lower:
+                        if title in line_lower and not any(project_word in line_lower for project_word in ['project', 'system', 'application', 'website', 'app', 'detection', 'analysis', 'generator']):
                             experience.append({'title': line.strip()})
                             break
         
@@ -785,7 +811,7 @@ class ResumeParser:
         return certifications[:10]  # Limit to 10 certifications
     
     def _extract_projects(self, text: str, sections: Dict[str, str]) -> List[Dict[str, str]]:
-        """Extract projects from resume - exclude academic projects from certifications"""
+        """Extract projects from resume - improved parsing to separate from experience"""
         projects = []
         
         # Extract from projects section if available
@@ -801,8 +827,16 @@ class ResumeParser:
                 
                 line_lower = line_clean.lower()
                 
-                # Check for project keywords
-                if any(keyword in line_lower for keyword in ['project', 'system', 'application', 'website', 'app', 'community service', 'automatic street', 'wooden toys']):
+                # Check for project keywords - more comprehensive
+                project_keywords = [
+                    'project', 'system', 'application', 'website', 'app', 
+                    'community service', 'automatic street', 'wooden toys',
+                    'detection', 'analysis', 'generator', 'identification',
+                    'deep learning', 'machine learning', 'ai', 'neural network',
+                    'fake news', 'language detection', 'qr code', 'missing child'
+                ]
+                
+                if any(keyword in line_lower for keyword in project_keywords):
                     if current_project:
                         projects.append(current_project)
                     current_project = {'title': line_clean}
@@ -819,9 +853,49 @@ class ResumeParser:
         # If no projects found in section, search entire text
         if not projects:
             lines = text.split('\n')
+            in_projects_section = False
+            in_experience_section = False
+            in_education_section = False
+            
             for line in lines:
                 line_lower = line.lower().strip()
-                if any(keyword in line_lower for keyword in ['project', 'system', 'application', 'website', 'app', 'community service', 'automatic street', 'wooden toys']):
-                    projects.append({'title': line.strip()})
+                
+                # Skip education section
+                if 'education' in line_lower:
+                    in_education_section = True
+                    in_projects_section = False
+                    in_experience_section = False
+                    continue
+                elif in_education_section and any(section in line_lower for section in ['skills', 'certifications', 'languages', 'projects', 'strengths', 'activities', 'hobbies', 'experience']):
+                    in_education_section = False
+                
+                # Skip experience section
+                if 'experience' in line_lower:
+                    in_experience_section = True
+                    in_education_section = False
+                    in_projects_section = False
+                    continue
+                elif in_experience_section and any(section in line_lower for section in ['skills', 'certifications', 'languages', 'education', 'projects', 'strengths', 'activities', 'hobbies']):
+                    in_experience_section = False
+                
+                # Check if we're in projects section
+                if 'projects' in line_lower:
+                    in_projects_section = True
+                    in_education_section = False
+                    in_experience_section = False
+                    continue
+                elif in_projects_section and any(section in line_lower for section in ['skills', 'certifications', 'languages', 'education', 'experience', 'strengths', 'activities', 'hobbies']):
+                    break
+                
+                if in_projects_section and not in_education_section and not in_experience_section:
+                    project_keywords = [
+                        'project', 'system', 'application', 'website', 'app', 
+                        'community service', 'automatic street', 'wooden toys',
+                        'detection', 'analysis', 'generator', 'identification',
+                        'deep learning', 'machine learning', 'ai', 'neural network',
+                        'fake news', 'language detection', 'qr code', 'missing child'
+                    ]
+                    if any(keyword in line_lower for keyword in project_keywords):
+                        projects.append({'title': line.strip()})
         
         return projects 

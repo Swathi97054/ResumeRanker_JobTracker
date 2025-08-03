@@ -42,7 +42,7 @@
     "filename": "test.docx",
     "upload_date": "2025-08-02T21:19:50.810986"
   },
-  "92ebedc9-6019-4546-8693-ad129deddc47": {
+  "889a3ef3-cd97-4a5e-8158-d65653c951a4": {
     "raw_text": "KODURI VENKATA SWATHI\nSUMMARY\nMotivated recent graduate in artificial intelligence and machine learning, enthusiastic about\nutilizing strong programming skills and analytical abilities in a challenging position that\nencourages professional development and contributes to innovative AI solutions.\nPROJECTS\nEXPERIENCE\nIntern  HS GLOBAL AI \nBuilt and deployed scalable AI applications, including Stable Diffusion pipelines, LLM pipelines,\nface swap models, face fusion, text-to-speech, and speech-to-text systems.\nContributed to the development and deployment of the companys website using WordPress\nas part of the web development team.\nDeveloped a cross-platform mobile application using React Native and Supabase to serve and\nintegrate the companys AI models.\nTools  Technologies: Python, TensorFlow, PyTorch, OpenCV, FastAPI, React Native,\nSupabase, WordPress, GitHub, Hugging Face, Docker.April 2025 - PresentThis project focused on determining when an article could be considered fake news. For this\ntask, I utilized a dataset called Fake  Real News from Kaggle and trained the model over\nfive epochs.\nI employed various libraries, including Pandas, NumPy, Keras, TensorFlow, and Scikit-learn.\nCreated a deep learning model based on LSTM architecture for classifying fake news,\nachieving an impressive accuracy of 99.3.Fake News Detection Analysis  Deep Learning (Project Link)\nLanguage Detection - Machine Learning (Project Link)\nLanguage detection is typically treated as a text classification problem where the goal is to\ndetermine the language of a given text snippet.\nThis project builds a language detection model using Multinomial Na\u00efve Bayes, a commonly\nused algorithm for text classification. \nAchieved high accuracy using Multinomial Na\u00efve Bayes for text classification.\nQR code generator using Python (Project Link)\nA QR code generator script in Python converts data (such as URLs, text, image, or other\ninformation) into 1 or more QR code images. \nThe script typically utilizes libraries such as qrcode and IPython to manage the generation\nprocess and handle image creation.\nMissing Child Identification System Using Multiclass SVM and DL (Project Link)\nBuilt a desktop-based Missing Child Identification System using VGG16  Multi-Class SVM,\nintegrating DL for face feature extraction and SVM for classification with high accuracy.\nDesigned and implemented a complete Tkinter GUI with modules for public uploads, official\nlogin, and real-time image matching using OpenCV and SQLite, enabling end-to-end case\nhandling and live detection.Ongole, Andhra Pradesh\n 9705432172 venkataswathi74@gmail.com\n LinkedIn GitHub \nSKILLS\nC h a i t a n y a C o - e d J u n i o r C o l l e g e2 0 2 1 - 2 0 2 5\nArtificial Intelligence and Machine Learning\nCGPA-8.46\nS.S.C\nGPA-9.7V i j a y a I n s t i t u t e o f T e c h n o l o g y f o r W o m e n\n2 0 1 8 - 2 0 1 9B a c k e n d L a n g u a g e s : Python, Basics of C and Java\nFrontend Languages: HTML and CSS\nDatabases  Applications: MySQL, Machine Learning, Deep Learning\nSoft Skills: Communication, Problem-Solving, Time Management, Teamwork\nEDUCATION\n2 0 1 9 - 2 0 2 1\nIntermediate-MPC\nGPA  9.74\nZ P H i g h S c h o o l ( G i r l s )\nCERTIFICATIONS \nPython Basics at INFOSYS \nGoogle Cybersecurity at COURSERA \nIntroduction to Cybersecurity at CISCO \nMongoDB Basics at MongoDB \nArtificial Intelligence Foundation Certificate at INFOSYS \nComputer Vision Onramp at MathWorks \nSTRENGTHS  INTERESTS\nStrengths: Self-confidence, adaptability, integrity, and active listening.\nHobbies: I enjoy learning new technologies, solving Sudoku puzzles, and traveling.\nLanguages Known: English, TeluguObtained hands-on experience with advanced cybersecurity techniques and tools.\nAssisted in the development and implementation of security policies, protocols, and\nprocedures.C y b e r s e c u r i t y V i r t u a l I n t e r n - E d u S k i l l s S e p t 2 0 2 3 - N o v 2 0 2 3Earned hands-on experience with Generative AI techniques and tools.\nAcquired overview of Generative AI concepts, from the fundamentals of large language models\nto responsible AI principles.G e n e r a t i v e A I I n t e r n - G o o g l e C l o u d J u l y 2 0 2 4 - S e p t e m b e r 2 0 2 4Completed industrial training on artificial intelligence, covering key concepts and applications\nof artificial intelligence, including face recognition and smart cars.\nGained hands-on experience in practical areas like machine learning and computer vision.A r t i f i c i a l I n t e l l i g e n c e I n t e r n - L e a r n w i k F e b r u a r y 2 0 2 3 - A p r i l 2 0 2 3INTERNSHIPS",
     "name": "KODURI VENKATA SWATHI",
     "contact_info": {
@@ -50,10 +50,10 @@
       "phone": "9705432172"
     },
     "skills": [
+      "mysql",
+      "sql",
       "java",
       "css",
-      "sql",
-      "mysql",
       "python",
       "html",
       "r"
@@ -61,10 +61,13 @@
     "experience": [
       {
         "title": "Intern  HS GLOBAL AI",
+        "company": "I employed various libraries, including Pandas, NumPy, Keras, TensorFlow, and Scikit-learn.",
+        "description": "Built and deployed scalable AI applications, including Stable Diffusion pipelines, LLM pipelines, face swap models, face fusion, text-to-speech, and speech-to-text systems. Contributed to the development and deployment of the companys website using WordPress as part of the web development team. Developed a cross-platform mobile application using React Native and Supabase to serve and integrate the companys AI models. Tools  Technologies: Python, TensorFlow, PyTorch, OpenCV, FastAPI, React Native, Supabase, WordPress, GitHub, Hugging Face, Docker.April 2025 - PresentThis project focused on determining when an article could be considered fake news. For this task, I utilized a dataset called Fake  Real News from Kaggle and trained the model over five epochs. I employed various libraries, including Pandas, NumPy, Keras, TensorFlow, and Scikit-learn.",
         "dates": "Supabase, WordPress, GitHub, Hugging Face, Docker.April 2025 - PresentThis project focused on determining when an article could be considered fake news. For this"
       },
       {
-        "title": "Created a deep learning model based on LSTM architecture for classifying fake news,"
+        "title": "Created a deep learning model based on LSTM architecture for classifying fake news,",
+        "description": "achieving an impressive accuracy of 99.3.Fake News Detection Analysis  Deep Learning (Project Link)"
       }
     ],
     "education": [
@@ -74,13 +77,13 @@
         "year": "",
         "cgpa": "9.74",
         "percentage": "",
-        "status": "completed"
+        "status": ""
       }
     ],
     "summary": "Motivated recent graduate in artificial intelligence and machine learning, enthusiastic about\nutilizing strong programming skills and analytical abilities in a challenging position that\nencourages professional development and contributes to innovative AI solutions.",
     "languages": [
-      "Telugu",
-      "English"
+      "English",
+      "Telugu"
     ],
     "certifications": [
       "Python Basics at INFOSYS",
@@ -92,150 +95,116 @@
     ],
     "projects": [
       {
-        "title": "PROJECTS"
+        "title": "Motivated recent graduate in artificial intelligence and machine learning, enthusiastic about",
+        "description": "Project details available"
       },
       {
-        "title": "Built and deployed scalable AI applications, including Stable Diffusion pipelines, LLM pipelines,"
+        "title": "encourages professional development and contributes to innovative AI solutions.",
+        "description": "Project details available"
       },
       {
-        "title": "face swap models, face fusion, text-to-speech, and speech-to-text systems."
+        "title": "PROJECTS",
+        "description": "Project details available"
       },
-      {
-        "title": "Contributed to the development and deployment of the companys website using WordPress"
-      },
-      {
-        "title": "Developed a cross-platform mobile application using React Native and Supabase to serve and"
-      },
-      {
-        "title": "Supabase, WordPress, GitHub, Hugging Face, Docker.April 2025 - PresentThis project focused on determining when an article could be considered fake news. For this"
-      },
-      {
-        "title": "achieving an impressive accuracy of 99.3.Fake News Detection Analysis  Deep Learning (Project Link)"
-      },
-      {
-        "title": "Language Detection - Machine Learning (Project Link)"
-      },
-      {
-        "title": "This project builds a language detection model using Multinomial Na\u00efve Bayes, a commonly"
-      },
-      {
-        "title": "QR code generator using Python (Project Link)"
-      },
-      {
-        "title": "Missing Child Identification System Using Multiclass SVM and DL (Project Link)"
-      },
-      {
-        "title": "Built a desktop-based Missing Child Identification System using VGG16  Multi-Class SVM,"
-      },
-      {
-        "title": "Databases  Applications: MySQL, Machine Learning, Deep Learning"
-      },
-      {
-        "title": "to responsible AI principles.G e n e r a t i v e A I I n t e r n - G o o g l e C l o u d J u l y 2 0 2 4 - S e p t e m b e r 2 0 2 4Completed industrial training on artificial intelligence, covering key concepts and applications"
-      }
-    ],
-    "hobbies": [
-      "STRENGTHS  INTERESTS SUMMARY Motivated recent graduate in artificial intelligence and machine learning",
-      "enthusiastic about"
-    ],
-    "awards": [
-      "of artificial intelligence, including face recognition and smart cars."
-    ],
-    "personal_details": {},
-    "id": "92ebedc9-6019-4546-8693-ad129deddc47",
-    "filename": "swathi-cv.pdf",
-    "upload_date": "2025-08-03T13:35:31.924046"
-  },
-  "82558b94-4426-4324-a4e4-76561f31b1a3": {
-    "raw_text": "KODURI VENKATA SWATHI\nSUMMARY\nMotivated recent graduate in artificial intelligence and machine learning, enthusiastic about\nutilizing strong programming skills and analytical abilities in a challenging position that\nencourages professional development and contributes to innovative AI solutions.\nPROJECTS\nEXPERIENCE\nIntern  HS GLOBAL AI \nBuilt and deployed scalable AI applications, including Stable Diffusion pipelines, LLM pipelines,\nface swap models, face fusion, text-to-speech, and speech-to-text systems.\nContributed to the development and deployment of the companys website using WordPress\nas part of the web development team.\nDeveloped a cross-platform mobile application using React Native and Supabase to serve and\nintegrate the companys AI models.\nTools  Technologies: Python, TensorFlow, PyTorch, OpenCV, FastAPI, React Native,\nSupabase, WordPress, GitHub, Hugging Face, Docker.April 2025 - PresentThis project focused on determining when an article could be considered fake news. For this\ntask, I utilized a dataset called Fake  Real News from Kaggle and trained the model over\nfive epochs.\nI employed various libraries, including Pandas, NumPy, Keras, TensorFlow, and Scikit-learn.\nCreated a deep learning model based on LSTM architecture for classifying fake news,\nachieving an impressive accuracy of 99.3.Fake News Detection Analysis  Deep Learning (Project Link)\nLanguage Detection - Machine Learning (Project Link)\nLanguage detection is typically treated as a text classification problem where the goal is to\ndetermine the language of a given text snippet.\nThis project builds a language detection model using Multinomial Na\u00efve Bayes, a commonly\nused algorithm for text classification. \nAchieved high accuracy using Multinomial Na\u00efve Bayes for text classification.\nQR code generator using Python (Project Link)\nA QR code generator script in Python converts data (such as URLs, text, image, or other\ninformation) into 1 or more QR code images. \nThe script typically utilizes libraries such as qrcode and IPython to manage the generation\nprocess and handle image creation.\nMissing Child Identification System Using Multiclass SVM and DL (Project Link)\nBuilt a desktop-based Missing Child Identification System using VGG16  Multi-Class SVM,\nintegrating DL for face feature extraction and SVM for classification with high accuracy.\nDesigned and implemented a complete Tkinter GUI with modules for public uploads, official\nlogin, and real-time image matching using OpenCV and SQLite, enabling end-to-end case\nhandling and live detection.Ongole, Andhra Pradesh\n 9705432172 venkataswathi74@gmail.com\n LinkedIn GitHub \nSKILLS\nC h a i t a n y a C o - e d J u n i o r C o l l e g e2 0 2 1 - 2 0 2 5\nArtificial Intelligence and Machine Learning\nCGPA-8.46\nS.S.C\nGPA-9.7V i j a y a I n s t i t u t e o f T e c h n o l o g y f o r W o m e n\n2 0 1 8 - 2 0 1 9B a c k e n d L a n g u a g e s : Python, Basics of C and Java\nFrontend Languages: HTML and CSS\nDatabases  Applications: MySQL, Machine Learning, Deep Learning\nSoft Skills: Communication, Problem-Solving, Time Management, Teamwork\nEDUCATION\n2 0 1 9 - 2 0 2 1\nIntermediate-MPC\nGPA  9.74\nZ P H i g h S c h o o l ( G i r l s )\nCERTIFICATIONS \nPython Basics at INFOSYS \nGoogle Cybersecurity at COURSERA \nIntroduction to Cybersecurity at CISCO \nMongoDB Basics at MongoDB \nArtificial Intelligence Foundation Certificate at INFOSYS \nComputer Vision Onramp at MathWorks \nSTRENGTHS  INTERESTS\nStrengths: Self-confidence, adaptability, integrity, and active listening.\nHobbies: I enjoy learning new technologies, solving Sudoku puzzles, and traveling.\nLanguages Known: English, TeluguObtained hands-on experience with advanced cybersecurity techniques and tools.\nAssisted in the development and implementation of security policies, protocols, and\nprocedures.C y b e r s e c u r i t y V i r t u a l I n t e r n - E d u S k i l l s S e p t 2 0 2 3 - N o v 2 0 2 3Earned hands-on experience with Generative AI techniques and tools.\nAcquired overview of Generative AI concepts, from the fundamentals of large language models\nto responsible AI principles.G e n e r a t i v e A I I n t e r n - G o o g l e C l o u d J u l y 2 0 2 4 - S e p t e m b e r 2 0 2 4Completed industrial training on artificial intelligence, covering key concepts and applications\nof artificial intelligence, including face recognition and smart cars.\nGained hands-on experience in practical areas like machine learning and computer vision.A r t i f i c i a l I n t e l l i g e n c e I n t e r n - L e a r n w i k F e b r u a r y 2 0 2 3 - A p r i l 2 0 2 3INTERNSHIPS",
-    "name": "KODURI VENKATA SWATHI",
-    "contact_info": {
-      "email": "venkataswathi74@gmail.com",
-      "phone": "9705432172"
-    },
-    "skills": [
-      "mysql",
-      "sql",
-      "css",
-      "html",
-      "r",
-      "python",
-      "java"
-    ],
-    "experience": [
       {
         "title": "Intern  HS GLOBAL AI",
-        "dates": "Supabase, WordPress, GitHub, Hugging Face, Docker.April 2025 - PresentThis project focused on determining when an article could be considered fake news. For this"
+        "description": "Project details available"
       },
       {
-        "title": "Created a deep learning model based on LSTM architecture for classifying fake news,"
-      }
-    ],
-    "education": [
-      {
-        "degree": "Intermediate-MPC",
-        "institution": "",
-        "year": "",
-        "cgpa": "9.74",
-        "percentage": "",
-        "status": "completed"
-      }
-    ],
-    "summary": "Motivated recent graduate in artificial intelligence and machine learning, enthusiastic about\nutilizing strong programming skills and analytical abilities in a challenging position that\nencourages professional development and contributes to innovative AI solutions.",
-    "languages": [
-      "Telugu",
-      "English"
-    ],
-    "certifications": [
-      "Python Basics at INFOSYS",
-      "Google Cybersecurity at COURSERA",
-      "Introduction to Cybersecurity at CISCO",
-      "MongoDB Basics at MongoDB",
-      "Artificial Intelligence Foundation Certificate at INFOSYS",
-      "Computer Vision Onramp at MathWorks"
-    ],
-    "projects": [
-      {
-        "title": "PROJECTS"
+        "title": "Built and deployed scalable AI applications, including Stable Diffusion pipelines, LLM pipelines,",
+        "description": "Project details available"
       },
       {
-        "title": "Built and deployed scalable AI applications, including Stable Diffusion pipelines, LLM pipelines,"
+        "title": "face swap models, face fusion, text-to-speech, and speech-to-text systems.",
+        "description": "Project details available"
       },
       {
-        "title": "face swap models, face fusion, text-to-speech, and speech-to-text systems."
+        "title": "Contributed to the development and deployment of the companys website using WordPress",
+        "description": "Project details available"
       },
       {
-        "title": "Contributed to the development and deployment of the companys website using WordPress"
+        "title": "Developed a cross-platform mobile application using React Native and Supabase to serve and",
+        "description": "Project details available"
       },
       {
-        "title": "Developed a cross-platform mobile application using React Native and Supabase to serve and"
+        "title": "integrate the companys AI models.",
+        "description": "Project details available"
       },
       {
-        "title": "Supabase, WordPress, GitHub, Hugging Face, Docker.April 2025 - PresentThis project focused on determining when an article could be considered fake news. For this"
+        "title": "Supabase, WordPress, GitHub, Hugging Face, Docker.This project focused on determining when an article could be considered fake news. For this",
+        "description": "Project details available"
       },
       {
-        "title": "achieving an impressive accuracy of 99.3.Fake News Detection Analysis  Deep Learning (Project Link)"
+        "title": "task, I utilized a dataset called Fake  Real News from Kaggle and trained the model over",
+        "description": "Project details available"
       },
       {
-        "title": "Language Detection - Machine Learning (Project Link)"
+        "title": "Created a deep learning model based on LSTM architecture for classifying fake news,",
+        "description": "Project details available"
       },
       {
-        "title": "This project builds a language detection model using Multinomial Na\u00efve Bayes, a commonly"
+        "title": "achieving an impressive accuracy of 99.3.Fake News Detection Analysis  Deep Learning ()",
+        "description": "Project details available"
       },
       {
-        "title": "QR code generator using Python (Project Link)"
+        "title": "Language Detection - Machine Learning ()",
+        "description": "Project details available"
       },
       {
-        "title": "Missing Child Identification System Using Multiclass SVM and DL (Project Link)"
+        "title": "This project builds a language detection model using Multinomial Na\u00efve Bayes, a commonly",
+        "description": "Project details available"
       },
       {
-        "title": "Built a desktop-based Missing Child Identification System using VGG16  Multi-Class SVM,"
+        "title": "QR code generator using Python ()",
+        "description": "Project details available"
       },
       {
-        "title": "Databases  Applications: MySQL, Machine Learning, Deep Learning"
+        "title": "Missing Child Identification System Using Multiclass SVM and DL ()",
+        "description": "Project details available"
       },
       {
-        "title": "to responsible AI principles.G e n e r a t i v e A I I n t e r n - G o o g l e C l o u d J u l y 2 0 2 4 - S e p t e m b e r 2 0 2 4Completed industrial training on artificial intelligence, covering key concepts and applications"
+        "title": "Built a desktop-based Missing Child Identification System using VGG16  Multi-Class SVM,",
+        "description": "Project details available"
+      },
+      {
+        "title": "9705432172 venkataswathi74@gmail.com",
+        "description": "Project details available"
+      },
+      {
+        "title": "Artificial Intelligence and Machine Learning",
+        "description": "Project details available"
+      },
+      {
+        "title": "Databases  Applications: MySQL, Machine Learning, Deep Learning",
+        "description": "Project details available"
+      },
+      {
+        "title": "Artificial Intelligence Foundation Certificate at INFOSYS",
+        "description": "Project details available"
+      },
+      {
+        "title": "Languages Known: English, TeluguObtained hands-on experience with advanced cybersecurity techniques and tools.",
+        "description": "Project details available"
+      },
+      {
+        "title": "procedures.C y b e r s e c u r i t y V i r t u a l I n t e r n - E d u S k i l l s S e p t 2 0 2 3 - N o v 2 0 2 3Earned hands-on experience with Generative AI techniques and tools.",
+        "description": "Project details available"
+      },
+      {
+        "title": "Acquired overview of Generative AI concepts, from the fundamentals of large language models",
+        "description": "Project details available"
+      },
+      {
+        "title": "to responsible AI principles.G e n e r a t i v e A I I n t e r n - G o o g l e C l o u d J u l y 2 0 2 4 - S e p t e m b e r 2 0 2 4Completed industrial training on artificial intelligence, covering key concepts and applications",
+        "description": "Project details available"
+      },
+      {
+        "title": "of artificial intelligence, including face recognition and smart cars.",
+        "description": "Project details available"
+      },
+      {
+        "title": "Gained hands-on experience in practical areas like machine learning and computer vision.A r t i f i c i a l I n t e l l i g e n c e I n t e r n - L e a r n w i k F e b r u a r y 2 0 2 3 - A p r i l 2 0 2 3INTERNSHIPS",
+        "description": "Project details available"
       }
     ],
     "hobbies": [
@@ -246,8 +215,8 @@
       "of artificial intelligence, including face recognition and smart cars."
     ],
     "personal_details": {},
-    "id": "82558b94-4426-4324-a4e4-76561f31b1a3",
-    "filename": "swathi-cv.pdf",
-    "upload_date": "2025-08-03T14:25:41.213022"
+    "id": "889a3ef3-cd97-4a5e-8158-d65653c951a4",
+    "filename": "swathi-cv (1).pdf",
+    "upload_date": "2025-08-03T15:42:17.314391"
   }
 }

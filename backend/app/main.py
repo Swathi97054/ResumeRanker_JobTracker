@@ -1,5 +1,6 @@
 from fastapi import FastAPI, UploadFile, File, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import FileResponse
 from pydantic import BaseModel
 from typing import List, Optional
 import json
@@ -182,6 +183,7 @@ async def upload_resume(file: UploadFile = File(...)):
         resume_data = resume_parser.parse(file_path)
         resume_data["id"] = file_id
         resume_data["filename"] = file.filename
+        resume_data["file_path"] = file_path
         resume_data["upload_date"] = datetime.now().isoformat()
         
         # Save to JSON
@@ -235,6 +237,29 @@ async def get_resume(resume_id: str):
     if resume_id not in resumes:
         raise HTTPException(status_code=404, detail="Resume not found")
     return resumes[resume_id]
+
+@app.get("/resumes/{resume_id}/download")
+async def download_resume(resume_id: str):
+    """Download resume file"""
+    resumes = load_json_data(RESUMES_FILE)
+    if resume_id not in resumes:
+        raise HTTPException(status_code=404, detail="Resume not found")
+    
+    resume_data = resumes[resume_id]
+    file_path = resume_data.get('file_path')
+    
+    # If file_path is not stored, construct it
+    if not file_path:
+        file_path = os.path.join(DATA_DIR, "resumes", f"{resume_id}_{resume_data['filename']}")
+    
+    if not os.path.exists(file_path):
+        raise HTTPException(status_code=404, detail="Resume file not found")
+    
+    return FileResponse(
+        path=file_path,
+        filename=resume_data['filename'],
+        media_type='application/octet-stream'
+    )
 
 @app.post("/analyze-job")
 async def analyze_job(job: JobDescription):

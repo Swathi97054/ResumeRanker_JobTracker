@@ -107,18 +107,14 @@ const Applications: React.FC = () => {
         }
       }
 
-      const response = await fetch('http://localhost:8000/applications', {
+      const response = await fetch(`http://localhost:8000/applications?resume_id=${selectedResume}&job_id=${jobId}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          resume_id: selectedResume,
-          job_id: jobId,
-          status: {
-            status,
-            notes: notes || undefined,
-          },
+          status: status,
+          notes: notes || undefined,
         }),
       });
 
@@ -174,6 +170,28 @@ const Applications: React.FC = () => {
     } catch (error) {
       toast.error('Failed to update application');
       console.error('Update application error:', error);
+    }
+  };
+
+  const handleDeleteApplication = async (applicationId: string) => {
+    if (!window.confirm('Are you sure you want to delete this application?')) {
+      return;
+    }
+
+    try {
+      const response = await fetch(`http://localhost:8000/applications/${applicationId}`, {
+        method: 'DELETE',
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to delete application');
+      }
+
+      setApplications(prev => prev.filter(app => app.id !== applicationId));
+      toast.success('Application deleted successfully!');
+    } catch (error) {
+      toast.error('Failed to delete application');
+      console.error('Delete application error:', error);
     }
   };
 
@@ -313,20 +331,32 @@ const Applications: React.FC = () => {
                     </div>
                     <div className="flex-1">
                       <h3 className="font-medium text-gray-900 text-base">{getJobTitle(application.job_id)}</h3>
-                      <div className="flex items-center space-x-3 text-xs text-gray-600 mt-1">
-                        <div className="flex items-center space-x-1">
-                          <Building className="w-3 h-3" />
-                          <span>{getJobCompany(application.job_id)}</span>
-                        </div>
-                        <div className="flex items-center space-x-1">
-                          <Calendar className="w-3 h-3" />
-                          <span>Applied {formatDate(application.date_applied)}</span>
-                        </div>
-                        <div className="flex items-center space-x-1">
-                          <FileText className="w-3 h-3" />
-                          <span>{getResumeName(application.resume_id)}</span>
-                        </div>
-                      </div>
+                                             <div className="flex items-center space-x-3 text-xs text-gray-600 mt-1">
+                         <div className="flex items-center space-x-1">
+                           <Building className="w-3 h-3" />
+                           <span>{getJobCompany(application.job_id)}</span>
+                         </div>
+                         <div className="flex items-center space-x-1">
+                           <Calendar className="w-3 h-3" />
+                           <span>Applied {formatDate(application.date_applied)}</span>
+                         </div>
+                         <div className="flex items-center space-x-1">
+                           <FileText className="w-3 h-3" />
+                           <span>{getResumeName(application.resume_id)}</span>
+                           <button
+                             onClick={() => window.open(`/resumes/${application.resume_id}`, '_blank')}
+                             className="ml-1 text-blue-600 hover:text-blue-800 text-xs underline"
+                             title="View resume details"
+                           >
+                             View Details
+                           </button>
+                         </div>
+                       </div>
+                       {application.notes && (
+                         <div className="mt-2 text-xs text-gray-600 bg-gray-50 p-2 rounded">
+                           <span className="font-medium">Notes:</span> {application.notes}
+                         </div>
+                       )}
                     </div>
                   </div>
                   
@@ -334,6 +364,13 @@ const Applications: React.FC = () => {
                     <span className={`px-2 py-1 rounded-full text-xs font-medium ${getStatusColor(application.status)}`}>
                       {application.status}
                     </span>
+                    <button
+                      onClick={() => handleDeleteApplication(application.id)}
+                      className="text-red-600 hover:text-red-800 transition-colors"
+                      title="Delete application"
+                    >
+                      <XCircle className="w-4 h-4" />
+                    </button>
                   </div>
                 </div>
               ))}
@@ -401,23 +438,36 @@ const Applications: React.FC = () => {
                 </select>
               </div>
               
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Resume Used
-                </label>
-                <select
-                  value={selectedResume}
-                  onChange={(e) => setSelectedResume(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                >
-                  <option value="">Select resume</option>
-                  {resumes.map((resume) => (
-                    <option key={resume.id} value={resume.id}>
-                      {resume.filename}
-                    </option>
-                  ))}
-                </select>
-              </div>
+                             <div>
+                 <label className="block text-sm font-medium text-gray-700 mb-2">
+                   Resume Used
+                 </label>
+                 <select
+                   value={selectedResume}
+                   onChange={(e) => setSelectedResume(e.target.value)}
+                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                 >
+                   <option value="">Select resume</option>
+                   {resumes.map((resume) => (
+                     <option key={resume.id} value={resume.id}>
+                       {resume.filename}
+                     </option>
+                   ))}
+                 </select>
+               </div>
+               
+               <div>
+                 <label className="block text-sm font-medium text-gray-700 mb-2">
+                   Notes (Optional)
+                 </label>
+                 <textarea
+                   value={notes}
+                   onChange={(e) => setNotes(e.target.value)}
+                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                   rows={3}
+                   placeholder="Add any notes about this application..."
+                 />
+               </div>
               
               <div className="flex justify-end space-x-3 pt-4">
                 <button

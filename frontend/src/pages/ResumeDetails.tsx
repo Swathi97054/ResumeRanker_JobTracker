@@ -66,6 +66,32 @@ const ResumeDetails: React.FC = () => {
     }
   };
 
+  const handleDownload = async () => {
+    if (!resume) return;
+    
+    try {
+      const response = await fetch(`http://localhost:8000/resumes/${resume.id}/download`);
+      if (!response.ok) {
+        throw new Error('Failed to download resume');
+      }
+      
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = resume.filename;
+      document.body.appendChild(a);
+      a.click();
+      window.URL.revokeObjectURL(url);
+      document.body.removeChild(a);
+      
+      toast.success('Resume downloaded successfully!');
+    } catch (error) {
+      console.error('Download error:', error);
+      toast.error('Failed to download resume');
+    }
+  };
+
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-screen">
@@ -105,7 +131,10 @@ const ResumeDetails: React.FC = () => {
                 <p className="text-sm text-gray-600">Uploaded on {formatDate(resume.upload_date)}</p>
               </div>
             </div>
-            <button className="flex items-center space-x-2 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">
+            <button 
+              onClick={handleDownload}
+              className="flex items-center space-x-2 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+            >
               <Download className="w-4 h-4" />
               <span>Download</span>
             </button>
@@ -236,30 +265,134 @@ const ResumeDetails: React.FC = () => {
               </div>
             </div>
 
-            {/* Education */}
-            <div className="bg-white rounded-lg shadow p-6">
-              <div className="flex items-center space-x-2 mb-4">
-                <GraduationCap className="w-5 h-5 text-gray-600" />
-                <h2 className="text-lg font-semibold text-gray-900">Education</h2>
-              </div>
-              <div className="space-y-3">
-                {resume.education && resume.education.length > 0 ? (
-                  resume.education.map((edu, index) => (
-                    <div key={index}>
-                      <h3 className="font-medium text-gray-900">{edu.degree || 'Unknown Degree'}</h3>
-                      {edu.institution && (
-                        <p className="text-green-600 text-sm">{edu.institution}</p>
-                      )}
-                      {edu.year && (
-                        <p className="text-gray-600 text-sm">{edu.year}</p>
-                      )}
-                    </div>
-                  ))
-                ) : (
-                  <span className="text-gray-500 text-sm">No education specified</span>
-                )}
-              </div>
-            </div>
+                         {/* Education */}
+             <div className="bg-white rounded-lg shadow p-6">
+               <div className="flex items-center space-x-2 mb-4">
+                 <GraduationCap className="w-5 h-5 text-gray-600" />
+                 <h2 className="text-lg font-semibold text-gray-900">Education</h2>
+               </div>
+               <div className="space-y-4">
+                 {resume.education && resume.education.length > 0 ? (
+                   resume.education.map((edu, index) => (
+                     <div key={index} className="border-l-2 border-green-500 pl-4">
+                       <div className="flex items-start space-x-2">
+                         <GraduationCap className="w-4 h-4 text-gray-500 mt-1" />
+                         <div className="flex-1">
+                           <h3 className="font-medium text-gray-900">{edu.degree || 'Unknown Degree'}</h3>
+                           {edu.institution && (
+                             <p className="text-green-600 text-sm font-medium">{edu.institution}</p>
+                           )}
+                           <div className="flex items-center space-x-4 text-xs text-gray-600 mt-1">
+                             {edu.year && (
+                               <span>Year: {edu.year}</span>
+                             )}
+                             {edu.cgpa && (
+                               <span>CGPA: {edu.cgpa}</span>
+                             )}
+                             {edu.percentage && (
+                               <span>Percentage: {edu.percentage}%</span>
+                             )}
+                             {edu.status && (
+                               <span className={`px-2 py-1 rounded-full text-xs ${
+                                 edu.status === 'completed' 
+                                   ? 'bg-green-100 text-green-800' 
+                                   : 'bg-yellow-100 text-yellow-800'
+                               }`}>
+                                 {edu.status}
+                               </span>
+                             )}
+                           </div>
+                         </div>
+                       </div>
+                     </div>
+                   ))
+                 ) : (
+                   <span className="text-gray-500 text-sm">No education specified</span>
+                 )}
+               </div>
+             </div>
+
+                         {/* Projects */}
+             <div className="bg-white rounded-lg shadow p-6">
+               <div className="flex items-center space-x-2 mb-4">
+                 <FileText className="w-5 h-5 text-gray-600" />
+                 <h2 className="text-lg font-semibold text-gray-900">Projects</h2>
+               </div>
+               <div className="space-y-4">
+                 {resume.projects && resume.projects.length > 0 ? (
+                   resume.projects.map((project, index) => (
+                     <div key={index} className="border-l-2 border-purple-500 pl-4">
+                       <div className="flex items-start space-x-2">
+                         <FileText className="w-4 h-4 text-gray-500 mt-1" />
+                         <div className="flex-1">
+                           <h3 className="font-medium text-gray-900">{project.title || 'Unknown Project'}</h3>
+                           
+                           {/* Project Details */}
+                           <div className="mt-2 space-y-2">
+                             {project.technologies && (
+                               <div className="flex items-center space-x-2">
+                                 <span className="text-xs font-medium text-purple-600">Technologies:</span>
+                                 <span className="text-xs text-gray-700">{project.technologies}</span>
+                               </div>
+                             )}
+                             
+                             {project.dates && (
+                               <div className="flex items-center space-x-2">
+                                 <span className="text-xs font-medium text-purple-600">Duration:</span>
+                                 <span className="text-xs text-gray-700">{project.dates}</span>
+                               </div>
+                             )}
+                             
+                             {project.accuracy && (
+                               <div className="flex items-center space-x-2">
+                                 <span className="text-xs font-medium text-purple-600">Accuracy:</span>
+                                 <span className="text-xs text-gray-700">{project.accuracy}</span>
+                               </div>
+                             )}
+                             
+                             {project.link && (
+                               <div className="flex items-center space-x-2">
+                                 <span className="text-xs font-medium text-purple-600">Link:</span>
+                                 <a 
+                                   href={project.link} 
+                                   target="_blank" 
+                                   rel="noopener noreferrer"
+                                   className="text-xs text-blue-600 hover:text-blue-800 underline"
+                                 >
+                                   View Project
+                                 </a>
+                               </div>
+                             )}
+                           </div>
+                           
+                           {project.description && (
+                             <div className="mt-3">
+                               <p className="text-gray-700 text-sm leading-relaxed">{project.description}</p>
+                             </div>
+                           )}
+                           
+                           {/* Project Tags */}
+                           {project.tags && project.tags.length > 0 && (
+                             <div className="mt-3 flex flex-wrap gap-1">
+                               {project.tags.map((tag: string, tagIndex: number) => (
+                                 <span
+                                   key={tagIndex}
+                                   className="px-2 py-1 bg-purple-100 text-purple-800 rounded-full text-xs"
+                                 >
+                                   {tag}
+                                 </span>
+                               ))}
+                             </div>
+                           )}
+                         </div>
+                       </div>
+                     </div>
+                   ))
+                 ) : (
+                   <span className="text-gray-500 text-sm">No projects specified</span>
+                 )}
+               </div>
+             </div>
           </div>
         </div>
       </div>
