@@ -1,0 +1,16 @@
+
+        JOHN DOE
+        john.doe@email.com
+        (123) 456-7890
+        
+        EDUCATION
+        Bachelor of Technology in Computer Science
+        ABC University, 2020
+        
+        SKILLS
+        Python, Java, JavaScript, React, Node.js
+        
+        EXPERIENCE
+        Software Engineer
+        XYZ Company, 2020-2023
+        

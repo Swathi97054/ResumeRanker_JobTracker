@@ -1,0 +1,15 @@
+fastapi
+uvicorn
+python-multipart
+python-docx
+PyPDF2
+spacy
+scikit-learn
+pandas
+numpy
+transformers
+torch
+sentence-transformers
+beautifulsoup4
+requests
+python-dotenv 

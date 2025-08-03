@@ -1,0 +1,21 @@
+# Ignore node_modules and virtual environments
+node_modules/
+venv/
+.env
+
+# Ignore build and dist outputs
+build/
+dist/
+
+# Ignore IDE configs
+.vscode/
+.idea/
+
+# Ignore Python cache
+__pycache__/
+
+# Ignore git folder
+.git/
+
+# Ignore Cursor project settings if any
+.cursor/

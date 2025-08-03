@@ -1,0 +1,42 @@
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependency directories
+node_modules/
+venv/
+.env
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# IDE settings
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Build output
+dist/
+build/
+*.egg-info/
+
+# Test coverage
+coverage/
+*.cover
+.hypothesis/
+
+# Misc
+*.bak
+*.swp
+*.tmp
+*.orig
+.env.*
+.env
